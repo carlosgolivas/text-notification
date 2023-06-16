@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+import TextNotification from './components/TextNotification';
 import './App.css';
 
-function App() {
+const App = () => {
+  const textMessage = {
+    from: '3342079227',
+    text: 'This is a message from your client about a loan',
+    threadId: '123456789'
+  };
+
+  const sendReply = (replyMessage) => {
+    console.log('Reply Message:', replyMessage);
+  };
+
+  const navigateToInboxThread = (threadId) => {
+    console.log('Navigate to Thread:', threadId);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <TextNotification textMessage={textMessage} sendReply={sendReply} navigateToInboxThread={navigateToInboxThread} />
     </div>
   );
-}
+};
 
 export default App;
